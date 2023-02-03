@@ -42,9 +42,21 @@ RSpec.describe LinkedList do
     it 'can count how many nodes have been created' do
 
       list = LinkedList.new
+
+      expect(list.count).to eq(0)
       list.append("doop")
       
       expect(list.count).to eq(1)
+    end
+  end
+  describe '#append multiple times' do
+    it 'can append multiple elements' do
+
+      list = LinkedList.new
+      append_1 = list.append("doop")
+      append_2 = list.append("deep")
+
+      expect(list.head.next_node).to eq(append_2)
     end
   end
 end

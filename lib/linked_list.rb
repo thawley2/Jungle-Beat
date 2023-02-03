@@ -3,13 +3,16 @@ class LinkedList
   def initialize
     @head = nil
   end
+
   def append(data)
+    new_node = Node.new(data)
     if @head == nil
-    @head = Node.new(data)
-    else
-      @head.next_node = Node.new(data)
+    @head = new_node
+    else @head.next_node == nil
+      @head.next_node = new_node
     end
   end
+
   def count
     count = 1 
     if @head == nil
