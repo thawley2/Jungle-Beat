@@ -50,13 +50,24 @@ RSpec.describe LinkedList do
     end
   end
   describe '#append multiple times' do
-    it 'can append multiple elements' do
+    it 'can add multiple nodes to the end of a list' do
 
       list = LinkedList.new
       append_1 = list.append("doop")
       append_2 = list.append("deep")
 
       expect(list.head.next_node).to eq(append_2)
+      expect(list.count).to eq(2)
+    end
+  end
+  describe '#to_string' do
+    it 'can list all data from all nodes in one string' do
+
+      list = LinkedList.new
+      append_1 = list.append("doop")
+      append_2 = list.append("deep")
+
+      expect(list.to_string).to eq("doop deep")
     end
   end
 end
