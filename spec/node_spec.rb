@@ -24,7 +24,7 @@ RSpec.describe Node do
 
       node = Node.new("plop")
 
-      expect(node.next_node).to be nil 
+      expect(node.next_node).to be nil
     end
   end
 end
