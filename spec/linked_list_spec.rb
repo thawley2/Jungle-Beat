@@ -45,7 +45,6 @@ RSpec.describe LinkedList do
 
       expect(list.count).to eq(0)
       list.append("doop")
-      
       expect(list.count).to eq(1)
     end
   end
@@ -68,6 +67,29 @@ RSpec.describe LinkedList do
       append_2 = list.append("deep")
 
       expect(list.to_string).to eq("doop deep")
+    end
+  end
+  describe '#prepend' do
+    it 'can add a node to the beginning of the list' do
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+require 'pry'; binding.pry
+      expect(list.head.data).to eq("dop")
+      expect(list.to_string).to eq("dop plop suu")
+      expect(list.count).to eq(3)
+    end
+  end
+  describe '#insert' do
+    it 'can insert a node into a list at a specified index' do
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+      list.insert(1, "woo")
+
+      expect(list.to_string).to eq("dop woo plop suu")
     end
   end
 end
