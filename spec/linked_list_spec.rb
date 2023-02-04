@@ -99,7 +99,7 @@ RSpec.describe LinkedList do
 
       expect(list.to_string).to eq("dop plop suu")
       expect(list.count).to eq(3)
-      
+
       list.insert(1, "woo")
 
       expect(list.to_string).to eq("dop woo plop suu")
@@ -127,5 +127,21 @@ RSpec.describe LinkedList do
     list.append("clop")
     
     expect(list.insert(5, "wop")).to eq("The list is not that long, please choose a new index position that is less than 4")
+  end
+
+  describe '#find' do
+    it 'can find a list of data starting at a specific index' do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.to_string).to eq("deep woo shi shu blop")
+      expect(list.count).to eq(5)
+      expect(list.find(2, 1)).to eq("shi")
+      expect(list.find(1, 3)).to eq("woo shi shu")
+    end
   end
 end
