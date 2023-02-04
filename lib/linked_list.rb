@@ -50,7 +50,7 @@ class LinkedList
     if index < 1
       "Just use the prepend method!!"
     elsif @head == nil
-      @head = Node.new(data)
+      @head = new_node
       "There is nothing in the list yet, so your new data was added to the head of the list, you are welcome."
     elsif index > count
       "The list is not that long, please choose a new index position that is less than #{count}"
