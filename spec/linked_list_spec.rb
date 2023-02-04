@@ -144,8 +144,9 @@ RSpec.describe LinkedList do
       expect(list.find(1, 3)).to eq("woo shi shu")
     end
   end
+  
   describe '#includes?' do
-    it 'can return true or false if' do
+    it 'can return true or false' do
       list = LinkedList.new
       list.append("deep")
       list.append("woo")
@@ -154,8 +155,25 @@ RSpec.describe LinkedList do
       list.append("blop")
 
       expect(list.includes?("deep")).to be(true)
-      expect(list.includes?("dep" )).to be(false)
-      
+      expect(list.includes?("dep")).to be(false)
+
+    end
+  end
+
+  describe '#pop' do
+    it 'can remove and return the last node in the list' do
+      list = LinkedList.new
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.prepend("deep")
+      list.append("blop")
+
+      expect(list.to_string).to eq("deep woo shi shu blop")
+      expect(list.count).to eq(5)
+      expect(list.pop).to eq("blop")
+      expect(list.pop).to eq("shu")
+      expect(list.to_string).to eq("deep woo shi")
     end
   end
 end
