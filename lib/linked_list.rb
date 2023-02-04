@@ -50,18 +50,22 @@ class LinkedList
   #need to iterate through list to find the "index" position
   #add inserted node to previous node's 'next_node'
   #add the inserted nodes 'next_node' equal to the node at that 'index' location
-  def insert(local, data)
+  def insert(index, data)
+    new_node = Node.new(data)
     if @head == nil
       @head = Node.new(data)
       "There is nothing in the list yet, so your new data was added to the head of the list, you are welcome."
-    elsif local > count
+    elsif index > count
       "The list is not that long, please choose a new index position that is less than #{count}"
     else 
       current_node = @head
-      local.times do
+      previous_node = nil
+      index.times do
+        previous_node = current_node
         current_node = current_node.next_node
       end
-
+      new_node.next_node = current_node
+      previous_node.next_node = new_node
     end
   end
 end
