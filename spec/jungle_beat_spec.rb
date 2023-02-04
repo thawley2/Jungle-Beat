@@ -20,4 +20,14 @@ RSpec.describe JungleBeat do
       expect(jb.list.head).to be nil
     end
   end
+
+  describe '#append' do
+    it 'can take a string with multiple words and create nodes' do
+      jb = JungleBeat.new
+
+      jb.append("deep doo ditt")
+      
+      expect(jb.list.head.data).to eq("deep")
+    end
+  end
 end
