@@ -42,4 +42,24 @@ RSpec.describe JungleBeat do
       expect(jb.count).to eq(6)
     end
   end
+
+  describe '#play' do
+    it 'can play sounds' do
+      jb = JungleBeat.new
+
+      jb.append("boots and cats and")
+      jb.append("boots and cats and")
+      jb.append("boots and cats and")
+      jb.append("boots and cats and")
+      jb.append("boots and cats and")
+      jb.append("boots and cats and")
+      jb.append("boots and cats and")
+      jb.append("boots and cats and")
+      jb.append("boots and cats and")
+
+      expect(jb.play).to eq("Thank you for playing Jungle Beat!")
+      #You should also be hearing sound, if you don't, your speakers are not on, 
+      #it's most definitely not my code. :)
+    end
+  end
 end
