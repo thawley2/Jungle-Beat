@@ -40,19 +40,16 @@ class LinkedList
     end
     string.join(" ")
   end
-
+  
   def prepend(data)
-    #Need to add the head node as next node to the prepended node 
-    #and set all that to @head
     @head = Node.new(data, @head)
   end
 
-  #need to iterate through list to find the "index" position
-  #add inserted node to previous node's 'next_node'
-  #add the inserted nodes 'next_node' equal to the node at that 'index' location
   def insert(index, data)
     new_node = Node.new(data)
-    if @head == nil
+    if index < 1
+      "Just use the prepend method!!"
+    elsif @head == nil
       @head = Node.new(data)
       "There is nothing in the list yet, so your new data was added to the head of the list, you are welcome."
     elsif index > count
