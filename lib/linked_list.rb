@@ -78,11 +78,23 @@ class LinkedList
     end
     string.join(" ")
   end
+
   def includes?(data)
     current_node = @head
     until current_node.data == data || current_node.next_node == nil
       current_node = current_node.next_node
     end
     current_node.data == data
+  end
+
+  def pop
+    current_node = @head
+    previous_node = nil
+    until current_node.next_node == nil
+      previous_node = current_node
+      current_node = current_node.next_node
+    end
+    previous_node.next_node = nil
+    current_node.data
   end
 end
