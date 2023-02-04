@@ -65,4 +65,17 @@ class LinkedList
       previous_node.next_node = new_node
     end
   end
+
+  def find(index, number)
+    string = []
+    current_node = @head
+    index.times do
+      current_node = current_node.next_node
+    end
+    number.times do
+      string << current_node.data
+      current_node = current_node.next_node
+    end
+    string.join(" ")
+  end
 end
