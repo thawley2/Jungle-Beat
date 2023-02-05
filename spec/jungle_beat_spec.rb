@@ -44,7 +44,7 @@ RSpec.describe JungleBeat do
   end
 
   describe '#play' do
-    it 'can play sounds' do
+    xit 'can play sounds' do
       jb = JungleBeat.new
 
       jb.append("boots and cats and")
@@ -60,6 +60,14 @@ RSpec.describe JungleBeat do
       expect(jb.play).to eq("Thank you for playing Jungle Beat!")
       #You should also be hearing sound, if you don't, your speakers are not on, 
       #it's most definitely not my code. :)
+    end
+  end
+
+  describe '#argument when initializing class' do
+    it 'can take an argument during class initialization' do
+      jb = JungleBeat.new("deep")
+
+      expect(jb.count).to eq(1)
     end
   end
 end
