@@ -15,12 +15,13 @@ class JungleBeat
     end
     data
   end
+
   def count
     @list.count
   end
 
   def play
     `say -r 250 -v Daniel #{@list.to_string}`
-    "Thank you for playing Jungle Beat!"
+    "Thank you for playing Jungle Beat, may the sounds haunt your dreams!"
   end
 end
