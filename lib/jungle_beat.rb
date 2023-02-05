@@ -1,7 +1,11 @@
 class JungleBeat
   attr_reader :list
-  def initialize
+  def initialize(data = nil)
     @list = LinkedList.new
+    
+    if !data.nil? 
+      @list.head = @list.append(data)
+    end
   end
 
   def append(data)
