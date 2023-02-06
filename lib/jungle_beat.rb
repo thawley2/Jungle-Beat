@@ -1,4 +1,6 @@
+
 class JungleBeat
+@@valid_inputs = ['tee', 'dee', 'deep', 'bop', 'boop', 'la', 'na', 'doo', 'ditt', 'woo', 'hoo', 'shu']
   attr_reader :list
   def initialize(data = nil)
     @list = LinkedList.new
@@ -10,9 +12,14 @@ class JungleBeat
 
   def append(data)
     split_data = data.split(" ")
-    split_data.each do |data|
-      @list.append(data)
+    valid = split_data.select do |data|
+      if @@valid_inputs.any? {|valid_input| valid_input == data}
+        data
+      end
     end
+    valid.each do |data|
+      @list.append(data)
+      end
     data
   end
 
