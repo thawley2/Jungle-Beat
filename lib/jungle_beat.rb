@@ -1,6 +1,6 @@
 
 class JungleBeat
-@@valid_inputs = ['tee', 'dee', 'deep', 'bop', 'boop', 'la', 'na', 'doo', 'ditt', 'woo', 'hoo', 'shu']
+@@valid_inputs = ['tee', 'dee', 'deep', 'bop', 'boop', 'la', 'na', 'doo', 'ditt', 'woo', 'hoo', 'shu', 'boots', 'and', 'cats']
   attr_reader :list
   def initialize(data = nil)
     @list = LinkedList.new
@@ -30,5 +30,9 @@ class JungleBeat
   def play
     `say -r 250 -v Daniel #{@list.to_string}`
     "Thank you for playing Jungle Beat, may the sounds haunt your dreams!"
+  end
+
+  def all
+    @list.to_string
   end
 end
