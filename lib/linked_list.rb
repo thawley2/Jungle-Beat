@@ -1,7 +1,8 @@
 class LinkedList 
-  attr_reader :head, :count
+  attr_accessor :head
   def initialize
     @head = nil
+
   end
 
   def append(data)
