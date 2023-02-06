@@ -80,4 +80,18 @@ RSpec.describe JungleBeat do
       expect(jb.count).to eq(1)
     end
   end
+
+  describe '#all' do
+    it 'can display all beats in the list' do
+      jb = JungleBeat.new("deep")
+
+      jb.append('Mississippi')
+
+      expect(jb.all).to eq("deep")
+
+      jb.append('bop')
+      
+      expect(jb.all).to eq("deep bop")
+    end
+  end
 end
