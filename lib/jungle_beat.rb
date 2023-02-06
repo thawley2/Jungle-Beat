@@ -23,6 +23,19 @@ class JungleBeat
     data
   end
 
+  def prepend(data)
+    split_data = data.split(" ")
+    valid = split_data.select do |data|
+      if @@valid_inputs.any? {|valid_input| valid_input == data}
+        data
+      end
+    end
+    valid.each do |data|
+      @list.prepend(data)
+      end
+    data
+  end
+
   def count
     @list.count
   end
