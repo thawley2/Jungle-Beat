@@ -94,4 +94,14 @@ RSpec.describe JungleBeat do
       expect(jb.all).to eq("deep bop")
     end
   end
+
+  describe '#prepend' do
+    it 'can take a list of multiple words and prepend them to the beginning of the list' do
+      jb = JungleBeat.new("deep")
+
+      jb.prepend("tee tee tee Mississippi")
+
+      expect(jb.all).to eq("tee tee tee deep")
+    end
+  end
 end
