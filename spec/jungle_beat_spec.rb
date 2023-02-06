@@ -70,4 +70,14 @@ RSpec.describe JungleBeat do
       expect(jb.count).to eq(1)
     end
   end
+
+  describe 'Validating beats' do
+    it 'has a list of valid beats and skips initializing invalid beats' do
+      jb = JungleBeat.new("deep")
+
+      jb.append('Mississippi')
+      
+      expect(jb.count).to eq(1)
+    end
+  end
 end
