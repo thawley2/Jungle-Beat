@@ -13,9 +13,7 @@ class JungleBeat
   def append(data)
     split_data = data.split(" ")
     valid = split_data.select do |data|
-      if @@valid_inputs.any? {|valid_input| valid_input == data}
-        data
-      end
+    @@valid_inputs.any? {|valid_input| valid_input == data}
     end
     valid.each do |data|
       @list.append(data)
@@ -26,9 +24,7 @@ class JungleBeat
   def prepend(data)
     split_data = data.split(" ")
     valid = split_data.select do |data|
-      if @@valid_inputs.any? {|valid_input| valid_input == data}
-        data
-      end
+      @@valid_inputs.any? {|valid_input| valid_input == data}
     end
     valid.each do |data|
       @list.prepend(data)
@@ -43,6 +39,14 @@ class JungleBeat
   def play
     `say -r 250 -v Daniel #{@list.to_string}`
     "Thank you for playing Jungle Beat, may the sounds haunt your dreams!"
+  end
+
+  def voice=(voice)
+    voice
+
+  end
+  def rate=(rate)
+
   end
 
   def all
