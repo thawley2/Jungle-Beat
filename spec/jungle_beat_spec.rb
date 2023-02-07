@@ -44,7 +44,7 @@ RSpec.describe JungleBeat do
   end
 
   describe '#play' do
-    xit 'can play sounds' do
+    it 'can play sounds' do
       jb = JungleBeat.new
 
       jb.append("boots and cats and")
@@ -57,7 +57,7 @@ RSpec.describe JungleBeat do
       jb.append("boots and cats and")
       jb.append("boots and cats and")
 
-      expect(jb.play).to eq("Thank you for playing Jungle Beat, may the sounds haunt your dreams!")
+      expect(jb.play).to eq(36)
       #You should also be hearing sound, if you don't, your speakers are not on, 
       #it's most definitely not my code. :)
     end
@@ -104,4 +104,44 @@ RSpec.describe JungleBeat do
       expect(jb.all).to eq("tee tee tee deep")
     end
   end
-end
+
+  it 'can take multiple words when initializing the class' do
+    jb = JungleBeat.new("deep dop dop deep")
+
+    expect(jb.count).to eq(4)
+  end
+
+  describe '#voice, #rate' do
+    it 'voice and rate have default values' do
+      jb = JungleBeat.new("deep dop dop deep")
+
+      expect(jb.voice).to eq("Boing")
+      expect(jb.rate).to eq(500)
+    end
+  end
+
+  it 'can change the voice and rate' do
+    jb = JungleBeat.new("deep dop dop deep")
+
+    jb.voice = 'Daniel'
+    jb.rate = 100
+
+    expect(jb.voice).to eq('Daniel')
+    expect(jb.rate).to eq(100)
+  end
+
+  describe '#reset_voice, #reset_rate' do
+    it 'can return the voice and rate back to default' do
+      jb = JungleBeat.new("deep dop dop deep")
+
+      jb.voice = 'Daniel'
+      jb.rate = 100
+
+      jb.reset_voice
+      jb.reset_rate
+
+      expect(jb.voice).to eq('Boing')
+      expect(jb.rate).to eq(500)
+    end
+  end  
+end 
