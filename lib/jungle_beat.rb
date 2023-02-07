@@ -1,6 +1,6 @@
 
 class JungleBeat
-@@valid_inputs = ['tee', 'dee', 'deep', 'bop', 'boop', 'la', 'na', 'doo', 'ditt', 'woo', 'hoo', 'shu', 'boots', 'and', 'cats', 'dop']
+@@valid_inputs = ['tee', 'dee', 'deep', 'bop', 'boop', 'la', 'na', 'doo', 'ditt', 'woo', 'hoo', 'shu', 'boots', 'and', 'cats', 'dop', 'hee']
   attr_reader :list
   attr_accessor :rate, :voice
   def initialize(data = nil)
@@ -26,6 +26,7 @@ class JungleBeat
 
   def prepend(data)
     split_data = data.split(" ")
+    split_data.reverse
     valid = split_data.select do |data|
       @@valid_inputs.any? {|valid_input| valid_input == data}
     end
