@@ -118,14 +118,15 @@ RSpec.describe LinkedList do
     expect(list.insert(2, "wop")).to eq(list.head.data)
   end
 
-  it 'can append a node if the insert location is 0' do
+  it 'can append a node if the insert location is less than or equal to 0' do
     list = LinkedList.new
     list.append("plop")
 
     expect(list.insert(0, "wop")).to eq(list.head.data)
+    expect(list.insert(-1, "deep")).to eq(list.head.data)
   end
 
-  it 'can throw a different error message if the insert location exceeds the length of the list' do
+  it 'can insert node at the end of the list if the insert location exceeds the length of the list' do
     list = LinkedList.new
     list.append("plop")
     list.append("chop")
@@ -140,6 +141,7 @@ RSpec.describe LinkedList do
       list = LinkedList.new
       expect(list.to_string).to be nil
     end
+
     it 'can find a list of data starting at a specific index' do
       list = LinkedList.new
       list.append("deep")
@@ -152,6 +154,18 @@ RSpec.describe LinkedList do
       expect(list.count).to eq(5)
       expect(list.find(2, 1)).to eq("shi")
       expect(list.find(1, 3)).to eq("woo shi shu")
+    end
+
+    it "can error out if the find arguments don't match a true position in the list" do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.find(1, 5)).to eq('Error')
+      expect(list.find(6, 1)).to eq('Error')
     end
   end
   
@@ -184,6 +198,12 @@ RSpec.describe LinkedList do
       expect(list.pop).to eq("blop")
       expect(list.pop).to eq("shu")
       expect(list.to_string).to eq("deep woo shi")
+    end
+
+    it 'can return error if pop is called on an empty list' do
+      list = LinkedList.new
+
+      expect(list.pop).to eq('Error')
     end
   end
 end
