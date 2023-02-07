@@ -104,4 +104,10 @@ RSpec.describe JungleBeat do
       expect(jb.all).to eq("tee tee tee deep")
     end
   end
+
+  it 'can take multiple words when initializing the class' do
+    jb = JungleBeat.new("deep dop dop deep")
+
+    expect(jb.count).to eq(4)
+  end
 end
