@@ -1,12 +1,12 @@
 
 class JungleBeat
-@@valid_inputs = ['tee', 'dee', 'deep', 'bop', 'boop', 'la', 'na', 'doo', 'ditt', 'woo', 'hoo', 'shu', 'boots', 'and', 'cats']
+@@valid_inputs = ['tee', 'dee', 'deep', 'bop', 'boop', 'la', 'na', 'doo', 'ditt', 'woo', 'hoo', 'shu', 'boots', 'and', 'cats', 'dop']
   attr_reader :list
   def initialize(data = nil)
     @list = LinkedList.new
     
-    if !data.nil? 
-      @list.head = @list.append(data)
+    if data != nil 
+      append(data)
     end
   end
 
