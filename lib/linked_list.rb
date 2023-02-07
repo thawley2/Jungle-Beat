@@ -2,7 +2,6 @@ class LinkedList
   attr_accessor :head
   def initialize
     @head = nil
-
   end
 
   def append(data)
@@ -16,6 +15,7 @@ class LinkedList
       end
       current_node.next_node = new_node
     end
+    data
   end
 
   def count 
@@ -33,13 +33,16 @@ class LinkedList
   end
 
   def to_string
-    current_node = @head
-    string = []
-    until current_node == nil
-      string << current_node.data
-      current_node = current_node.next_node 
+    if @head.nil?
+      ""
+    else current_node = @head
+      string = "#{@head.data}"
+      until current_node.next_node == nil
+        current_node = current_node.next_node 
+        string += " #{current_node.data}"
+      end
     end
-    string.join(" ")
+    string
   end
   
   def prepend(data)
@@ -48,13 +51,10 @@ class LinkedList
 
   def insert(index, data)
     new_node = Node.new(data)
-    if index < 1
-      "Just use the prepend method!!"
-    elsif @head == nil
-      @head = new_node
-      "There is nothing in the list yet, so your new data was added to the head of the list, you are welcome."
+    if index == 0 || @head.nil?
+      prepend(data)
     elsif index > count
-      "The list is not that long, please choose a new index position that is less than #{count}"
+      append(data)
     else 
       current_node = @head
       previous_node = nil
@@ -65,6 +65,7 @@ class LinkedList
       new_node.next_node = current_node
       previous_node.next_node = new_node
     end
+    data
   end
 
   def find(index, number)
